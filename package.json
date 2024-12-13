@@ -1,0 +1,26 @@
+{
+  "name": "next-msw-playwright-example",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "ts-node --project tsconfig.server.json server.ts",
+    "build": "next build",
+    "start": "ts-node --project tsconfig.server.json server.ts",
+    "test": "playwright test",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "msw": "^2.6.8",
+    "@types/node": "^20.8.9",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1"
+  }
+}
+

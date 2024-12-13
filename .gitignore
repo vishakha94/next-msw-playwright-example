@@ -1,0 +1,10 @@
+node_modules/
+
+.next/
+
+server.js
+
+package-lock.json
+
+next-env.d.ts
+
