@@ -2,7 +2,7 @@ import RecipesClient from "./recipes-client";
 
 async function getRecipes() {
   const res = await fetch(
-    "https://dummyjson.com/recipes?limit=10&skip=10&select=id,name,image,cuisine",
+    "https://dummyjson.com/recipes?limit=3&skip=10&select=id,name,image,cuisine",
     {
       cache: "no-store",
     }
