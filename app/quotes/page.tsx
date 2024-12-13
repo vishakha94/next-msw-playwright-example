@@ -9,6 +9,6 @@ async function getQuotes() {
 }
 
 export default async function QuotesPage() {
-  const response = await getQuotes()
-  return <QuotesClient user={user} />
+  const { quotes, error } = await getQuotes()
+  return <QuotesClient quotes={quotes} error={error} />
 }
