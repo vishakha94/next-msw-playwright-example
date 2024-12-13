@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "ts-node --project tsconfig.server.json server.ts",
-    "build": "next build",
+    "build": "next build && tsc --project tsconfig.server.json sever.ts",
     "start": "ts-node --project tsconfig.server.json server.ts",
     "test": "playwright test",
     "type-check": "tsc --noEmit"
