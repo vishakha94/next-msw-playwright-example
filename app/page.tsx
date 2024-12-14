@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { Theme } from "@radix-ui/themes";
 
-import { RecipeCard } from "./components/RecipeCard";
-
 export default function Home() {
   return (
     <Theme>

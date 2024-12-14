@@ -1,28 +1,39 @@
-import express from 'express';
-import next from 'next';
-import { createServer } from 'http';
+import express from "express";
+import next from "next";
+import { createServer } from "http";
 
-import { mockServer  } from './mocks/node';
+import { mockServer } from "./mocks/node";
 
-const dev = process.env.NODE_ENV !== 'production';
+const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = process.env.PORT || 3000;
 
-console.log('***:', process.env.NODE_ENV);
-
+let isServerListening = false;
 app.prepare().then(() => {
   const server = express();
 
-  mockServer.listen();
+  // server.use((req, res, next) => {
+  //   if (isServerListening) {
+  //     console.log("MSW server .listen()");
+  //     mockServer.events.on("request:start", ({ request }) => {
+  //       console.log("Outgoing:", request.method, request.url);
+  //     });
+  //     mockServer.listen();
+  //     isServerListening = true;
+  //   }
+  //   next();
+  // });
 
-  server.all('*', (req, res) => {
-    return handle(req, res)
-  })
+  server.all("*", (req, res) => {
+    // mockServer.listen();
+    // isServerListening = true;
+    return handle(req, res);
+  });
 
-  const httpServer = createServer(server)
+  const httpServer = createServer(server);
 
   httpServer.listen(port, () => {
-    console.log(`> Ready on http://localhost:${port}`)
-  })
+    console.log(`> Ready on http://localhost:${port}`);
+  });
 });

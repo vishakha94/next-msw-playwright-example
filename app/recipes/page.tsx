@@ -17,3 +17,5 @@ export default async function RecipesPage() {
   const { recipes, error } = await getRecipes();
   return <RecipesClient recipes={recipes} />;
 }
+
+export const dynamic = "force-dynamic";
