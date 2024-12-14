@@ -1,25 +1,28 @@
-import { createServer } from 'http'
-import { parse } from 'url'
-import next from 'next'
+import express from 'express';
+import next from 'next';
+import { createServer } from 'http';
 
-const dev = process.env.NODE_ENV !== 'production'
-const hostname = 'localhost'
-const port = 3000
-const app = next({ dev, hostname, port })
-const handle = app.getRequestHandler()
+import { mockServer  } from './mocks/node';
+
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const handle = app.getRequestHandler();
+const port = process.env.PORT || 3000;
+
+console.log('***:', process.env.NODE_ENV);
 
 app.prepare().then(() => {
-  createServer(async (req, res) => {
-    try {
-      const parsedUrl = parse(req.url!, true)
-      await handle(req, res, parsedUrl)
-    } catch (err) {
-      console.error('Error occurred handling', req.url, err)
-      res.statusCode = 500
-      res.end('internal server error')
-    }
-  }).listen(port, () => {
-    console.log(`> Ready on http://${hostname}:${port}`)
-  })
-})
+  const server = express();
 
+  mockServer.listen();
+
+  server.all('*', (req, res) => {
+    return handle(req, res)
+  })
+
+  const httpServer = createServer(server)
+
+  httpServer.listen(port, () => {
+    console.log(`> Ready on http://localhost:${port}`)
+  })
+});
