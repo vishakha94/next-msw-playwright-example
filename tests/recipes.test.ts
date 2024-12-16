@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 import { mockServer } from "../mocks/node";
 
-test.describe.skip("/recipes", () => {
+test.describe("/recipes", () => {
   test.beforeAll(() => {
     mockServer.listen();
   });
