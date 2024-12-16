@@ -12,3 +12,6 @@
 
 #### Run playwright tests
 `npm run test`
+
+Force mock for tests to pass
+`FORCE_MOCK=true npm run test`
