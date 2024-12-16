@@ -1,21 +1,6 @@
 import { test, expect } from '@playwright/test'
-// import { setupMockServer } from './mockServer'
 
-test.describe.skip('Home Page', () => {
-  // const mockServer = setupMockServer()
-
-  // test.beforeAll(async () => {
-  //   await mockServer.listen()
-  // })
-
-  // test.afterAll(async () => {
-  //   await mockServer.close()
-  // })
-
-  // test.beforeEach(async () => {
-  //   mockServer.resetHandlers()
-  // })
-
+test.describe('Home Page', () => {
   test('displays welcome message and route links', async ({ page }) => {
     await page.goto('/');
     
