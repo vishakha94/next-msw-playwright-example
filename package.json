@@ -5,8 +5,9 @@
     "dev": "ts-node --project tsconfig.server.json server.ts",
     "build": "next build",
     "start": "ts-node --project tsconfig.server.json server.ts",
+    "start:mocked": "MSW=true ts-node --project tsconfig.server.json server.ts",
     "test": "playwright test",
-    "type-check": "tsc"
+    "type:check": "tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/themes": "^2.0.0",
