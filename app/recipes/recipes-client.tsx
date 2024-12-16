@@ -11,11 +11,11 @@ interface recipeType {
   cuisine: string;
 }
 
-interface RecipesClientProps {
+export interface RecipesType {
   recipes: recipeType[];
 }
 
-export default function RecipesClient({ recipes }: RecipesClientProps) {
+export function RecipesClient({ recipes }: RecipesType) {
   console.log({ recipes });
 
   return (

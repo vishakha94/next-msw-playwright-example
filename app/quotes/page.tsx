@@ -1,18 +1,10 @@
-import QuotesClient from "./quotes-client";
+import type { QuotesType } from "./quotes-client";
+import { QuotesClient } from "./quotes-client";
 
-async function getQuotes() {
-  const res = await fetch("https://dummyjson.com/quotes?limit=3&skip=10", {
-    cache: "no-store",
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch user");
-  }
-  return await res.json();
-}
+import { getData } from "../server/getData";
 
 export default async function QuotesPage() {
-  const { quotes, error } = await getQuotes();
+  const { quotes } = await getData<QuotesType>("/quotes?limit=3&skip=10");
   return <QuotesClient quotes={quotes} />;
 }
 

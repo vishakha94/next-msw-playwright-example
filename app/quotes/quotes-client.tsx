@@ -8,16 +8,16 @@ interface quoteType {
 
 type QuotesProps = quoteType[];
 
-interface QuotesClientProps {
+export interface QuotesType {
   quotes: QuotesProps;
 }
 
-export default function QuotesClient({ quotes }: QuotesClientProps) {
+export function QuotesClient({ quotes }: QuotesType) {
   console.log({ quotes });
   return (
     <ul>
       {quotes.map((quote) => (
-        <li key={quote.id}>
+        <li key={quote.id} data-testid="quote">
           <strong>{quote.quote}</strong>
           <br />
           <div>
