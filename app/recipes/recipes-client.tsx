@@ -22,7 +22,7 @@ export default function RecipesClient({ recipes }: RecipesClientProps) {
     <>
       <Flex gap="3" data-test-id="recipes">
         {recipes.map((recipe) => (
-          <div style={{ width: "240px" }} key={recipe.id}>
+          <div style={{ width: "240px" }} key={recipe.id} data-testid="recipe">
             <RecipeCard
               title={recipe.name}
               imageSrc={recipe.image}

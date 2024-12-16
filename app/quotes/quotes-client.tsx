@@ -17,7 +17,7 @@ export default function QuotesClient({ quotes }: QuotesClientProps) {
   return (
     <ul>
       {quotes.map((quote) => (
-        <li key={quote.id}>
+        <li key={quote.id} data-testid="quote">
           <strong>{quote.quote}</strong>
           <br />
           <div>
